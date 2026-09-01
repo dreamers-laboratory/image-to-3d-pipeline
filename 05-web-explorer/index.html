@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#031216" />
+    <meta name="description" content="A browser experiment in turning pixel artwork into explorable 3D space." />
+    <title>Welcome Underwater</title>
+    <script type="module" src="/src/analytics.js"></script>
+  </head>
+  <body>
+    <main id="app">
+      <canvas id="world" aria-label="Interactive underwater scene with a reconstructed submersible"></canvas>
+      <section class="hud">
+        <div class="telemetry" aria-label="Navigation telemetry">
+          <span><b id="depth">06.0</b> m depth</span>
+          <span><b id="range">--</b> <i id="range-label">m hull range</i></span>
+          <span><b id="fps">--</b> fps</span>
+        </div>
+      </section>
+      <div class="sr-only" aria-live="polite">
+        <h1>Underwater 3D explorer</h1>
+        <p>A browser-delivered interactive world built from an AI-generated underwater image and a reconstructed textured 3D submersible.</p>
+        <p>Move through the water with mouse look, keyboard navigation, inertial depth control, collision-aware geometry, a textured vehicle mesh, and a continuous panoramic environment.</p>
+        <span id="variant">LOCAL RECONSTRUCTION V2</span>
+        <span id="status">Preparing the dive…</span>
+      </div>
+      <section class="brief" id="brief">
+        <div class="nav-idle" id="controls">
+          <div class="movement-stack">
+            <div class="movement-keys" aria-label="W A S D movement controls">
+              <kbd class="key-w"><b>W</b><span aria-hidden="true">↑</span></kbd>
+              <kbd class="key-a"><b>A</b><span aria-hidden="true">←</span></kbd>
+              <kbd class="key-s"><b>S</b><span aria-hidden="true">↓</span></kbd>
+              <kbd class="key-d"><b>D</b><span aria-hidden="true">→</span></kbd>
+            </div>
+            <span class="scroll-cue">Scroll <i aria-hidden="true">↑↓</i></span>
+          </div>
+          <button class="click-cue" id="enter" type="button">
+            <span class="enter-label">Click</span>
+            <span class="escape"><kbd>ESC</kbd><span>TO RELEASE</span></span>
+          </button>
+        </div>
+      </section>
+      <div class="reticle" aria-hidden="true"></div>
+      <p class="collision" id="collision" role="status">Hull proximity</p>
+      <noscript>This experiment requires JavaScript and WebGL.</noscript>
+    </main>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>

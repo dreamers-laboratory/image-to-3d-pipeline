@@ -1,0 +1,10 @@
+tools/vendor/
+envs/
+node_modules/
+dist/
+*.ply
+checkpoints/
+.DS_Store
+test-results/
+05-web-explorer/public/assets/
+__pycache__/

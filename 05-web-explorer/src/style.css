@@ -1,0 +1,139 @@
+:root {
+  color: #d8f5f1;
+  background: #031216;
+  font-family: "Avenir Next", "Segoe UI", sans-serif;
+  font-synthesis: none;
+}
+
+* { box-sizing: border-box; }
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+html, body, #app { width: 100%; height: 100%; margin: 0; overflow: hidden; }
+
+body { background: #031216; }
+
+#world { display: block; width: 100%; height: 100%; touch-action: none; }
+
+.hud {
+  position: fixed;
+  inset: 0 0 auto 0;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding: 24px 28px;
+  pointer-events: none;
+  text-shadow: 0 1px 5px #001012;
+}
+
+.eyebrow { margin: 0 0 5px; color: #73c9c4; font-size: 10px; font-weight: 700; letter-spacing: .19em; }
+
+.telemetry { display: flex; gap: 18px; border-top: 1px solid rgba(255, 240, 189, .48); padding: 8px 2px 0; color: #aacbc7; font: 10px/1.2 ui-monospace, SFMono-Regular, Menlo, monospace; text-transform: uppercase; }
+.telemetry b { color: #ecfffb; font-weight: 600; }
+
+.brief {
+  position: fixed;
+  left: 28px;
+  bottom: 28px;
+  z-index: 2;
+  color: #c3f5ee;
+  filter: drop-shadow(0 2px 5px rgba(0, 19, 23, .72));
+}
+
+.nav-idle { display: flex; align-items: flex-end; gap: 18px; }
+.movement-stack { display: grid; gap: 9px; }
+.movement-keys {
+  display: grid;
+  grid-template-columns: repeat(3, 30px);
+  grid-template-rows: repeat(2, 30px);
+  gap: 3px;
+}
+.movement-keys kbd {
+  display: grid;
+  grid-template-columns: auto auto;
+  place-content: center;
+  gap: 3px;
+  border: 1px solid rgba(181, 240, 232, .48);
+  border-radius: 2px;
+  color: #eafffb;
+  background: rgba(3, 29, 33, .18);
+  font: 650 9px/1 ui-monospace, SFMono-Regular, Menlo, monospace;
+}
+.movement-keys kbd span { color: #8edbd2; font-size: 11px; }
+.movement-keys .key-w { grid-column: 2; }
+.movement-keys .key-a { grid-column: 1; grid-row: 2; }
+.movement-keys .key-s { grid-column: 2; grid-row: 2; }
+.movement-keys .key-d { grid-column: 3; grid-row: 2; }
+.scroll-cue {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 2px 0;
+  color: #e8fffb;
+  text-shadow: 0 1px 4px rgba(0, 20, 24, .9);
+  font: 800 10px/1 ui-monospace, SFMono-Regular, Menlo, monospace;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+}
+.scroll-cue i { color: #fff1c6; font-size: 14px; font-style: normal; letter-spacing: .1em; }
+.click-cue .escape {
+  display: none;
+  align-items: center;
+  gap: 9px;
+  margin: 0;
+  color: #d8fff9;
+  font: 700 10px/1 ui-monospace, SFMono-Regular, Menlo, monospace;
+  letter-spacing: .16em;
+}
+.escape kbd {
+  border: 1px solid rgba(255, 240, 198, .7);
+  border-radius: 2px;
+  padding: 6px 7px 5px;
+  color: #fff1c6;
+  background: rgba(3, 24, 28, .16);
+  font: inherit;
+}
+body.is-captured .enter-label { display: none; }
+body.is-captured .click-cue .escape { display: inline-flex; }
+body.is-captured .click-cue { border-color: transparent; pointer-events: none; }
+
+.click-cue {
+  margin: 0 0 1px;
+  padding: 6px 0;
+  border: 0;
+  border-bottom: 1px solid rgba(141, 219, 211, .5);
+  border-radius: 0;
+  background: transparent;
+  color: #a8e8e0;
+  font: 700 clamp(13px, 1.25vw, 17px)/1 "Avenir Next", "Segoe UI", sans-serif;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+.click-cue:hover, .click-cue:focus-visible { border-color: #fff1c6; color: #fff1c6; outline: none; }
+
+.reticle { position: fixed; left: 50%; top: 50%; width: 5px; height: 5px; margin: -2px; border: 1px solid rgba(206, 255, 248, .74); border-radius: 50%; pointer-events: none; }
+.collision { position: fixed; right: 28px; bottom: 28px; margin: 0; color: #ffdc98; font: 700 10px/1 ui-monospace, monospace; letter-spacing: .14em; text-transform: uppercase; opacity: 0; transition: opacity 100ms linear; }
+.collision.active { opacity: 1; }
+
+@media (max-width: 700px) {
+  .hud { padding: 16px; }
+  .telemetry { gap: 9px; flex-direction: column; }
+  .brief { left: 16px; bottom: 16px; }
+  .collision { right: 16px; bottom: 16px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .collision { transition: none; }
+}

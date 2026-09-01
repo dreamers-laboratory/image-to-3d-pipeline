@@ -1,0 +1,21 @@
+{
+  "name": "submerged-survey-explorer",
+  "private": true,
+  "version": "0.11.1",
+  "type": "module",
+  "engines": {
+    "node": ">=22.12.0"
+  },
+  "scripts": {
+    "build": "vite build",
+    "preview": "python3 -m http.server 4173 --bind 127.0.0.1 --directory dist"
+  },
+  "dependencies": {
+    "three": "0.179.1",
+    "three-mesh-bvh": "0.9.1"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.56.0",
+    "vite": "7.3.6"
+  }
+}

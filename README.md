@@ -1,8 +1,10 @@
 # image-to-3d-pipeline
 
-An image-to-3D evaluation pipeline. It takes a set of AI-generated renders of a fictional submersible, reconstructs candidate 3D meshes with several open-source models, scores the candidates with a fixed Blender inspection protocol, and serves the winner in a browser-based WebGL explorer.
+Turn a handful of images into a 3D mesh, then find out which model did it best.
 
-Built by Dreamers Inc (thedreamers.us).
+Single-image-to-3D reconstruction has a dozen open-source models and no obvious winner; the honest way to choose is to run several on the same input and look hard at what comes out. This pipeline does exactly that. It takes AI-generated renders of a fictional submersible, reconstructs candidate meshes with several models, scores them against a fixed Blender inspection protocol, and serves the winner in a browser-based WebGL explorer.
+
+Built by [Dreamers Inc](https://thedreamers.us).
 
 ## Source imagery
 

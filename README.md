@@ -4,6 +4,8 @@ Turn a handful of images into a 3D mesh, then find out which model did it best.
 
 Single-image-to-3D reconstruction has a dozen open-source models and no obvious winner; the honest way to choose is to run several on the same input and look hard at what comes out. This pipeline does exactly that. It takes AI-generated renders of a fictional submersible, reconstructs candidate meshes with several models, scores them against a fixed Blender inspection protocol, and serves the winner in a browser-based WebGL explorer.
 
+For the curious, a live photogrammetry case study from this repo: [3d.thedreamers.us/about](https://3d.thedreamers.us/about/), and the explorer itself at [3d.thedreamers.us](https://3d.thedreamers.us/) for live interaction.
+
 Built by [Dreamers Inc](https://thedreamers.us).
 
 ## Source imagery

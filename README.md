@@ -1,4 +1,4 @@
-# 3d-pipeline
+# image-to-3d-pipeline
 
 An image-to-3D evaluation pipeline. It takes a set of AI-generated renders of a fictional submersible, reconstructs candidate 3D meshes with several open-source models, scores the candidates with a fixed Blender inspection protocol, and serves the winner in a browser-based WebGL explorer.
 

@@ -6,6 +6,20 @@ Single-image-to-3D reconstruction has a dozen open-source models and no obvious 
 
 For the curious, a live photogrammetry case study from this repo: [3d.thedreamers.us/about](https://3d.thedreamers.us/about/), and the explorer itself at [3d.thedreamers.us](https://3d.thedreamers.us/) for live interaction.
 
+## See it
+
+![Eight generated viewpoints of the submersible, from one concept image](docs/images/multiview-eight-viewpoints.jpg)
+
+*Eight viewpoints from one concept.* Multiview reasoning happens before any geometry: port profile, three-quarter, bow-on, stern-on. Every reconstruction model in this repo starts from this sheet, so their outputs are comparable.
+
+![The reconstructed mesh in the browser viewer, with the six-stage build strip](docs/images/mesh-viewer-six-moves.png)
+
+*Six moves, one browser object.* The winning mesh in the WebGL viewer, and the pipeline it came through: mask, infer, bake, render, reject, export. The note under the strip is the honest limit of the whole method: a depth map estimates distance for visible pixels and cannot reveal what the camera never saw.
+
+![The build-story page at 3d.thedreamers.us](docs/images/build-story-hero.jpg)
+
+*The build story, live.* The public page walks from source imagery to a browser-delivered 3D world, step by step, in the open.
+
 Built by [Dreamers Inc](https://thedreamers.us).
 
 ## Source imagery
